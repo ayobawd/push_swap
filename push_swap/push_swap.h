@@ -6,7 +6,7 @@
 /*   By: ayal-awa <ayal-awa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 17:52:28 by ayal-awa          #+#    #+#             */
-/*   Updated: 2025/02/25 18:03:55 by ayal-awa         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:23:48 by ayal-awa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void				free_stack(t_node **stack);
 
 int					ft_atoi(const char *str);
 int					is_sorted(t_node *stack);
-void				sort(t_node **stack);
+void sort(t_node **stack_a, t_node **stack_b);
 void print_stack(t_node *stack);
 
 void				sa(t_node **stack_a);

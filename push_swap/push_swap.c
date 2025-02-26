@@ -6,7 +6,7 @@
 /*   By: ayal-awa <ayal-awa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 18:01:25 by ayal-awa          #+#    #+#             */
-/*   Updated: 2025/02/25 18:24:26 by ayal-awa         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:32:18 by ayal-awa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ int main(int argc, char **argv)
   
     if (is_sorted(stack_a))
         return (0); 
-    sort(&stack_a);
-
+    sort(&stack_a,&stack_b);
+	print_stack(stack_a);
+	print_stack(stack_b);
     
     free_stack(&stack_a);
     free_stack(&stack_b);
