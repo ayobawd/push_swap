@@ -6,7 +6,7 @@
 /*   By: ayal-awa <ayal-awa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 18:01:25 by ayal-awa          #+#    #+#             */
-/*   Updated: 2025/02/26 19:32:18 by ayal-awa         ###   ########.fr       */
+/*   Updated: 2025/03/03 23:55:15 by ayal-awa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ int main(int argc, char **argv)
     i = 1;
     while (i < argc)
     {
+		 ft_error_arg(argv[i]); 
         num = ft_atoi(argv[i]);
         add_node(&stack_a, create_node(num));
         i++;
     }
 
-  
+	ft_errors_duplicates(stack_a);
     if (is_sorted(stack_a))
         return (0); 
     sort(&stack_a,&stack_b);

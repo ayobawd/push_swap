@@ -1,5 +1,5 @@
 #include "push_swap.h"
-// Helper function to get the number of elements in a stack.
+
 int get_size(t_node *stack)
 {
     int count = 0;
@@ -15,30 +15,27 @@ void sort(t_node **stack_a, t_node **stack_b)
 {
     int size = get_size(*stack_a);
     int max_bits = 0;
-    int i, j, num;
+    int max_val = size - 1;  // Assuming numbers are normalized.
+    int i, j;
+    int mask;
 
-    // Calculate how many bits are needed for the largest number (assumes numbers are normalized)
-    while (((size - 1) >> max_bits) != 0)
+    // Determine the number of bits needed for the largest value.
+    while ((max_val >> max_bits) != 0)
         max_bits++;
 
-    // Process each bit position from least significant to most significant.
+    // Process each bit from LSB to MSB.
     for (i = 0; i < max_bits; i++)
     {
-        j = 0;
-        // Process every element in stack_a
-        while (j < size)
+        mask = 1 << i;
+        // For each element in stack_a, use the mask to decide the operation.
+        for (j = 0; j < size; j++)
         {
-            num = (*stack_a)->value;
-            // Check the i-th bit of num:
-            // If the bit is 1, rotate the element to the bottom of stack_a.
-            // Otherwise, push it to stack_b.
-            if (((num >> i) & 1) == 1)
-                ra(stack_a);
+            if (((*stack_a)->value & mask) != 0)
+                ra(stack_a);  // Bit is 1: rotate stack_a.
             else
-                pb(stack_a, stack_b);
-            j++;
+                pb(stack_a, stack_b);  // Bit is 0: push element to stack_b.
         }
-        // Now, push all elements from stack_b back to stack_a.
+        // Bring all elements from stack_b back to stack_a.
         while (*stack_b)
             pa(stack_a, stack_b);
     }

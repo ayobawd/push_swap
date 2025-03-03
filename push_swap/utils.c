@@ -6,7 +6,7 @@
 /*   By: ayal-awa <ayal-awa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 18:28:05 by ayal-awa          #+#    #+#             */
-/*   Updated: 2025/02/26 19:18:21 by ayal-awa         ###   ########.fr       */
+/*   Updated: 2025/03/03 23:55:43 by ayal-awa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,19 +78,4 @@ int is_sorted(t_node *stack)
         stack = stack->next;
     }
     return (1);
-}
-void print_stack(t_node *stack)
-{
-    if (!stack)
-    {
-        printf("Stack is EMPTY!\n");
-        return;
-    }
-    printf("Stack: ");
-    while (stack)
-    {
-        printf("%d -> ", stack->value);
-        stack = stack->next;
-    }
-    printf("NULL\n");
 }
