@@ -1,16 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ayal-awa <ayal-awa@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 18:28:05 by ayal-awa          #+#    #+#             */
-/*   Updated: 2025/03/03 23:55:43 by ayal-awa         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
+#include <stdlib.h>
 
 t_node *create_node(int value)
 {
@@ -18,6 +7,7 @@ t_node *create_node(int value)
     if (!new_node)
         return (NULL);
     new_node->value = value;
+    new_node->index = 0;
     new_node->next = NULL;
     return (new_node);
 }
@@ -64,18 +54,34 @@ int ft_atoi(const char *str)
     while (*str >= '0' && *str <= '9')
     {
         result = result * 10 + (*str - '0');
+        if (result * sign > INT_MAX || result * sign < INT_MIN)
+            ft_errors_write();  /* Exit on integer overflow */
         str++;
     }
     return ((int)(result * sign));
 }
-
-int is_sorted(t_node *stack)
+int	get_size(t_node *stack)
 {
-    while (stack && stack->next)
+	int	count = 0;
+	while (stack)
+	{
+		count++;
+		stack = stack->next;
+	}
+	return (count);
+}
+t_node *find_smallest(t_node *stack)
+{
+    t_node *smallest_node = NULL;
+    long smallest = LONG_MAX;
+    while (stack)
     {
-        if (stack->value > stack->next->value)
-            return (0);
+        if (stack->value < smallest)
+        {
+            smallest = stack->value;
+            smallest_node = stack;
+        }
         stack = stack->next;
     }
-    return (1);
+    return smallest_node;
 }

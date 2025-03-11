@@ -1,16 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ayal-awa <ayal-awa@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 13:36:13 by ayal-awa          #+#    #+#             */
-/*   Updated: 2025/02/25 17:36:18 by ayal-awa         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
 #include "push_swap.h"
 
 void sa(t_node **stack_a)
@@ -47,7 +34,6 @@ void ss(t_node **stack_a, t_node **stack_b)
 {
     sa(stack_a);
     sb(stack_b);
-    
 }
 
 void pa(t_node **stack_a, t_node **stack_b)
@@ -114,7 +100,6 @@ void rr(t_node **stack_a, t_node **stack_b)
 {
     ra(stack_a);
     rb(stack_b);
-    
 }
 
 void rra(t_node **stack)
@@ -161,7 +146,6 @@ void rrb(t_node **stack)
 
 void rrr(t_node **stack_a, t_node **stack_b)
 {
-    ra(stack_a);
-    rb(stack_b);
-    
+    rra(stack_a);
+    rrb(stack_b);
 }
