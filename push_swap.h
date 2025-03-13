@@ -44,7 +44,7 @@ void    rrr(t_node **stack_a, t_node **stack_b);
 /* Sorting functions */
 void    sort(t_node **stack_a, t_node **stack_b);
 void    sort_small(t_node **stack_a, t_node **stack_b);
-void    sort_large(t_node **stack_a, t_node **stack_b);
+void sort_large(t_node **stack_a, t_node **stack_b);
 void    assign_indexes(t_node **stack_a);
 
 #endif
